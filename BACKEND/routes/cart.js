@@ -3,7 +3,7 @@ var router = express.Router();
 
 const Cart = require('../models/carts');
 
-router.post('/cart', (req, res) => {
+router.post('/', (req, res) => {
 
     const newCart = new Cart({
         id: req.body.id
@@ -13,13 +13,18 @@ router.post('/cart', (req, res) => {
     })
 })
 
-router.get('/cart', (req, res) => {
+router.get('/', (req, res) => {
     Cart.find()
         .populate('trips')
         .then(carts => {
             res.json({ result: true, carts })
         })
 
+})
+
+router.delete('/:position', (req, res) => {
+    Cart.splice(req.params.position, 1);
+    res.json({ result: true, cartsList: Cart });
 });
 
 
