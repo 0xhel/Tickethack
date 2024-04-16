@@ -4,11 +4,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require('./models/connection');
-
 var indexRouter = require('./routes/index');
 var bookingRouter = require('./routes/booking');
 var cartRouter = require('./routes/cart');
-
+const cors = require('cors');
+app.use(cors());
 var app = express();
 
 require('dotenv').config();
