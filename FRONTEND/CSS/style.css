@@ -37,9 +37,9 @@ a {
 main {
     background-image: url('../images/background.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
-    height: 650px
+    height: 650px;
 }
 
 h1 {
@@ -100,11 +100,28 @@ p {
 #search-btn {
     margin-bottom: 20px;
     background-color: #4DA985;
+    color: white
 }
 
 #search-btn:hover,
 #book-btn:hover {
     background-color: rgba(77, 169, 133, 0.8);
+}
+
+#displaySection {
+    overflow: auto
+}
+
+#defaultDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#displaySection p {
+    color: black;
+    font-size: 1em;
+    margin-top: 40px
 }
 
 
@@ -121,4 +138,17 @@ p {
 
 #book-btn {
     background-color: #4DA985;
+    border-radius: 5px;
+    height: 25px;
+    color: white
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-right: 70px;
+    padding-left: 70px;
+    border-bottom: solid 2px #4DA985;
 }
