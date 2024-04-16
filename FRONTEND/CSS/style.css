@@ -1,14 +1,13 @@
 body {
     font-family: sans-serif;
-    margin: 0
+    margin: 0;
 }
 
-header {
+#header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    background-color: grey;
 }
 
 #logo {
@@ -21,4 +20,22 @@ header {
     display: flex;
     gap: 40px;
     margin-right: 50px
+}
+
+#main {
+    background-color: grey;
+    height: 623px
+}
+
+h1 {
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px
+}
+
+p {
+    width: 100%;
+    text-align: center;
+    font-size: 1.25em;
 }
