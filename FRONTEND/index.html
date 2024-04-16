@@ -32,16 +32,26 @@
         <p>Compare, book and enjoy cheap prices for train tickets: your journey starts on Tickethack.</p>
 
         <div id="sectionMain">
-            <form method="get" action="" class="sectionMain">
+            <div id="searchSection">
+                <div id="demiSection">
+                    <div>
+                        <input type="text" name="Departure" id="depart-input" class="formInput" placeholder="Departure">
+                        <input type="text" name="Arrival" id="arriv-input" class="formInput" placeholder="Arrival">
+                    </div>
+                    <input type="date" name="Date" id="Date" class="formInput" placeholder="DD/MM/YYYY">
+                </div>
+                <input type="submit" value="Search" id="search-btn" class="formInput">
 
-                <input type="text" name="Departure" id="depart-input" placeholder="Departure">
-                <input type="text" name="Arrival" id="arriv-input" placeholder="Arrival">
-                <input type="date" name="Date" id="Date" placeholder="DD/MM/YYYY">
-                <input type="submit" value="Search" id="search-btn">
+            </div>
 
-            </form>
+            <div id="displaySection">
 
-            <div class="sectionMain">
+                <div class="voyage">
+                    <div>Paris > Lyon</div>
+                    <div>16:23</div>
+                    <div>126€</div>
+                    <button id="#book-btn">Book</button>
+                </div>
 
 
             </div>
