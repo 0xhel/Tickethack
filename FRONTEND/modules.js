@@ -1,22 +1,37 @@
 
+
 function searchTrip() {
-let departInput = document.querySelector('#depart-input').input
-let arriveeInput = document.querySelector('#arriv-input').input
+    const departInput = document.querySelector('#depart-input').value
+    const arrivalInput = document.querySelector('#arriv-input').value
+    const dateInput = document.querySelector('#date-input').value
+    
+
 document.querySelector('#search-btn').addEventListener('click', () => {
-   fetch('', async {
-    method: 'GET',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ departure, arrival, date}),
-   })
-   .then( trip => {
-    departInput = trip.departure
-    arriveeInput = trip.arrival
+    fetch('', {
+        method: 'GET',
+       headers: { 'Content-Type': 'application/json' },
+       
+  })
+  .then(data => data.json())
+  .then( trip => {
+   const foundTrip = trip.filter(elem => elem.includes(elem.departure === departInput && elem.arrival === arrivalInput))
+   console.log()
+  }
+   
+    
+)
+})}
+  
+  
+    
+    
+    
+    
 
     
 
-   }) 	
-   })
-}
+    
+
 
 // affiche les voyages dans le panier
 function displayAddedTrips() {
