@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+const Trip = require('../models/trips');
+
+router.get('/', async function (req, res) {
+  const trips = await Trip.find();
+  res.json(trips);
 });
 
 module.exports = router;
