@@ -13,5 +13,14 @@ router.post('/cart', (req, res) => {
     })
 })
 
+router.get('/cart', (req, res) => {
+    Cart.find()
+        .populate('trips')
+        .then(carts => {
+            res.json({ result: true, carts })
+        })
+
+});
+
 
 module.exports = router;
