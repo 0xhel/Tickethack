@@ -7,26 +7,44 @@ const data = {
     
 
 document.querySelector('#search-btn').addEventListener('click', () => {
-    fetch('http://localhost:3000/index', {
+    const inputs = {
+        departure :document.querySelector('#depart-input').value,
+        arrival : document.querySelector('#arriv-input').value,
+        date : document.querySelector('#date-input').value
+    }
+    if(!inputs.departure || !inputs.arrival || !inputs.date)
+    {
+        return
+    }
+    fetch('http://localhost:3000/search', {
         method: 'POST',
        headers: { 'Content-Type': 'application/json' },
        body: JSON.stringify({data})
        
   })
   .then(data => data.json())
-  .then( trip => {
-    for(let elem of trip) {
+  .then( trips => {
+    !trips.length ?
+    document.querySelector('#display direction').innerHTML = ` `
+    : 
+    document.querySelector('#defaultDisplay').style.display = none
+    
+    for(let elem of trips) {
         document.querySelector('#display-section').innerHTML += `
         <div class="voyage">
-                        <div>${trip.arrival} > ${trip.arrival}</div>
-                        <div>${trip.date}</div>
-                        <div>${trip.price}</div>
+                        <div>${trips.arrival} > ${trips.arrival}</div>
+                        <div>${trips.date}</div>
+                        <div>${trips.price}</div>
                         <button id="#book-btn">Book</button>
                     </div>`
-    }   
-  }
+    }
+       
+    }
+   )
+} 
 )
-})
+
+ document.querySelectorAll(".book-btn").addEventListener('click', ())
 
 
 
