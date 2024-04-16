@@ -3,7 +3,7 @@ body {
     margin: 0;
 }
 
-#header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +22,7 @@ body {
     margin-right: 50px
 }
 
-#main {
+main {
     background-color: grey;
     height: 623px
 }
@@ -38,4 +38,16 @@ p {
     width: 100%;
     text-align: center;
     font-size: 1.25em;
+}
+
+#sectionMain {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+.sectionMain {
+    background-color: green;
+    width: 275px;
+    height: 350px
 }
