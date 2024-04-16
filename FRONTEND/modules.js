@@ -7,15 +7,17 @@ function searchTrip() {
     
 
 document.querySelector('#search-btn').addEventListener('click', () => {
-    fetch('', {
-        method: 'GET',
+    fetch('http://localhost:3000/index', {
+        method: 'POST',
        headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({ departure, arrival, date})
        
   })
   .then(data => data.json())
   .then( trip => {
+    console.log(trip)
    const foundTrip = trip.filter(elem => elem.includes(elem.departure === departInput && elem.arrival === arrivalInput))
-   console.log()
+   
   }
    
     
