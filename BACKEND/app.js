@@ -7,9 +7,9 @@ require('./models/connection');
 var indexRouter = require('./routes/index');
 var bookingRouter = require('./routes/booking');
 var cartRouter = require('./routes/cart');
+var app = express();
 const cors = require('cors');
 app.use(cors());
-var app = express();
 
 require('dotenv').config();
 
