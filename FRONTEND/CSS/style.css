@@ -7,7 +7,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 60px;
+}
+
+a {
+    text-decoration: none;
 }
 
 #logo {
@@ -19,25 +23,39 @@ header {
 #sous-menu {
     display: flex;
     gap: 40px;
-    margin-right: 50px
+    margin-right: 50px;
+}
+
+#sous-menu a {
+    color: black
+}
+
+#sous-menu a:hover {
+    text-decoration: underline;
 }
 
 main {
-    background-color: grey;
-    height: 623px
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 650px
 }
 
 h1 {
     margin: 0px;
     width: 100%;
     text-align: center;
-    padding-top: 50px
+    padding-top: 50px;
+    color: white;
 }
 
 p {
     width: 100%;
     text-align: center;
     font-size: 1.25em;
+    margin-bottom: 50px;
+    color: white;
 }
 
 #sectionMain {
@@ -46,41 +64,61 @@ p {
     gap: 100px;
 }
 
+.section {
+    background-color: white;
+    width: 275px;
+    height: 300px;
+    padding: 25px;
+    border-radius: 10px
+}
+
 #searchSection {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: green;
-    width: 275px;
-    height: 350px;
-    padding: 20px
 }
 
 #demiSection {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 175px;
+    height: 150px;
 }
 
 .formInput {
-    height: 40px
+    height: 35px;
+    border-radius: 5px;
+    border: 0px;
+    width: 100%;
+    background-color: #EFF2F1
 }
 
-#displaySection {
-    background-color: green;
-    width: 275px;
-    height: 350px;
-    padding: 20px;
+#depart-input {
+    border-bottom: solid 1px;
 }
+
+#search-btn {
+    margin-bottom: 20px;
+    background-color: #4DA985;
+}
+
+#search-btn:hover,
+#book-btn:hover {
+    background-color: rgba(77, 169, 133, 0.8);
+}
+
 
 .voyage {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: grey;
+    background-color: #EFF2F1;
     height: 40px;
     font-size: 0.9em;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+#book-btn {
+    background-color: #4DA985;
 }
