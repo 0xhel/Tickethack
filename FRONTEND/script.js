@@ -62,7 +62,25 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 
         }) 
 
-        document.querySelector("#cartContainer").style.display = "none";
+        document.querySelector("#display").style.display = "none";
+
+
+        document.querySelector('#cartContainer').innerHTML += `<p id="myCart"><strong>My cart</strong></p>
+
+        <div id="bookList">
+            <div class="tripBooked">
+                <div>Paris > Lyon</div>
+                <div>20:09</div>
+                <div>103€</div>
+                <button class="delete-btn">X</button>
+            </div>
+
+        </div>
+
+        <div id="cartFooter">
+            <div>Total: 230€</div>
+            <a href="bookings.html"><button class="purchase-btn">Purchase</button></a>
+        </div>`
 
 
 
