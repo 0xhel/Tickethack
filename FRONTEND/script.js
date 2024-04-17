@@ -19,7 +19,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
  })
  .then(data => data.json())
  .then( result => {
- console.log(result.trips)
+ 
  !result.trips.length ?
  document.querySelector('#displaySection').innerHTML = ` <div id="defaultDisplay">
  <img src="images/notfound.png">
@@ -29,7 +29,8 @@ document.querySelector('#search-btn').addEventListener('click', () => {
  document.querySelector('#defaultDisplay').style.display = 'none'
 
  for(let elem of result.trips) {
-  
+
+  console.log(elem)
    let justHours = elem.date.slice(11,16)
     
     document.querySelector('#displaySection').innerHTML += `
@@ -48,12 +49,13 @@ document.querySelector('#search-btn').addEventListener('click', () => {
     
          item.addEventListener('click', () => {
         let result = item.parentNode.id
+        console.log(result)
          
 
         fetch('http://localhost:3000/cart', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({result})
+            body: JSON.stringify({id: result})
 
         }).then( resp => resp.json())
           .then(resp => {
@@ -62,25 +64,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
             }
           })
 
-        document.querySelector("#display").style.display = "none";
-
-
-        document.querySelector('#cartContainer').innerHTML += `<p id="myCart"><strong>My cart</strong></p>
-
-        <div id="bookList">
-            <div class="tripBooked">
-                <div>Paris > Lyon</div>
-                <div>20:09</div>
-                <div>103€</div>
-                <button class="delete-btn">X</button>
-            </div>
-
-        </div>
-
-        <div id="cartFooter">
-            <div>Total: 230€</div>
-            <a href="bookings.html"><button class="purchase-btn">Purchase</button></a>
-        </div>`
+        
 
 
 
