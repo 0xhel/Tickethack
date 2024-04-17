@@ -1,9 +1,4 @@
-const data = {
-    departure :document.querySelector('#depart-input').value,
-    arrival : document.querySelector('#arriv-input').value,
-    date : document.querySelector('#date-input').value 
 
-}
 
 
 document.querySelector('#search-btn').addEventListener('click', () => {
@@ -42,7 +37,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
                     <div>${elem.departure} > ${elem.arrival}</div>
                     <div>${justHours}</div>
                     <div>${elem.price}€</div>
-                    <a href="cart.html"><button class="book-btn">Book</button></a>
+                    <button class="book-btn">Book</button>
                 </div>`
   } 
 
@@ -60,7 +55,12 @@ document.querySelector('#search-btn').addEventListener('click', () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({result})
 
-        }) 
+        }).then( resp => resp.json())
+          .then(resp => {
+            if(resp.result) {
+                window.location.assign("cart.html")
+            }
+          })
 
         document.querySelector("#display").style.display = "none";
 

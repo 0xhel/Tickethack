@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
     Cart.find()
-        .populate('trips')
+        .populate('trip')
         .then(carts => {
             res.json({ result: true, carts })
         })
