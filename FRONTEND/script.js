@@ -6,14 +6,13 @@ const data = {
 }
 
 
-
 document.querySelector('#search-btn').addEventListener('click', () => {
 
    const departure = document.querySelector('#depart-input').value
     const arrival = document.querySelector('#arriv-input').value
     const date = document.querySelector('#date-input').value
 
-if(!departure || !arrival || !date)
+ if(!departure || !arrival || !date)
 {
     return
 }
@@ -43,7 +42,7 @@ for(let elem of result.trips) {
                     <div>${elem.departure} > ${elem.arrival}</div>
                     <div>${justHours}</div>
                     <div>${elem.price}€</div>
-                    <button class="book-btn">Book</button>
+                    <a href="cart.html"><button class="book-btn">Book</button></a>
                 </div>`
 }
 
@@ -54,7 +53,7 @@ for ( let item of booked ) {
     
     item.addEventListener('click', () => {
         let result = item.parentNode.id
-      
+         
 
         fetch('http://localhost:3000/cart', {
             method: 'POST',
