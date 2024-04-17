@@ -62,7 +62,9 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 
         }) 
 
-        
+        document.querySelector("#cartContainer").style.display = "none";
+
+
 
 
     
@@ -70,7 +72,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
       })
    }
 
-
+    
 
 
 
