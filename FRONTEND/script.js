@@ -13,27 +13,27 @@ document.querySelector('#search-btn').addEventListener('click', () => {
     const date = document.querySelector('#date-input').value
 
  if(!departure || !arrival || !date)
-{
+ {
     return
-}
-fetch('http://localhost:3000/search', {
+ }
+ fetch('http://localhost:3000/search', {
     method: 'POST',
    headers: { 'Content-Type': 'application/json' },
    body: JSON.stringify({departure, arrival, date})
    
-})
-.then(data => data.json())
-.then( result => {
-console.log(result.trips)
-!result.trips.length ?
-document.querySelector('#displaySection').innerHTML = ` <div id="defaultDisplay">
-<img src="images/notfound.png">
-<p>No trip found.</p>
-</div> `
-: 
-document.querySelector('#defaultDisplay').style.display = 'none'
+ })
+ .then(data => data.json())
+ .then( result => {
+ console.log(result.trips)
+ !result.trips.length ?
+ document.querySelector('#displaySection').innerHTML = ` <div id="defaultDisplay">
+ <img src="images/notfound.png">
+ <p>No trip found.</p>
+ </div> `
+ : 
+ document.querySelector('#defaultDisplay').style.display = 'none'
 
-for(let elem of result.trips) {
+ for(let elem of result.trips) {
   
    let justHours = elem.date.slice(11,16)
     
@@ -44,14 +44,14 @@ for(let elem of result.trips) {
                     <div>${elem.price}€</div>
                     <a href="cart.html"><button class="book-btn">Book</button></a>
                 </div>`
-}
+  } 
 
-const booked = document.querySelectorAll(".book-btn")
+  const booked = document.querySelectorAll(".book-btn")
 
 
-for ( let item of booked ) {
+     for ( let item of booked ) {
     
-    item.addEventListener('click', () => {
+         item.addEventListener('click', () => {
         let result = item.parentNode.id
          
 
@@ -61,13 +61,26 @@ for ( let item of booked ) {
             body: JSON.stringify({result})
 
         }) 
+
+        
+
+
     
 
-    })}
+      })
+   }
+
+
+
+
+
+
+
 
 
    
-})} )
+  })
+})
 
 
 
