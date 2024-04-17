@@ -107,7 +107,7 @@ document.querySelector('.purchase-btn').addEventListener('click', ()=> {
 
     }
 
-    fetch
+    
 
 
 
