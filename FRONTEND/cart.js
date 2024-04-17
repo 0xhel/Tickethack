@@ -19,7 +19,7 @@ for (elem of result.carts) {
     
     document.querySelector('#cartContainer').innerHTML +=`
    <div id="bookList">
-    <div  class="tripBooked">
+    <div id="${elem._id}" class="tripBooked">
         <div>${elem.trip.departure} > ${elem.trip.arrival}</div>
         <div>${justHours}</div>
         <div>${elem.trip.price}€</div>
@@ -33,7 +33,7 @@ totalPrice += elem.trip.price
 }
 
 document.querySelector('#cartContainer').innerHTML +=`
- <div id="cartFooter">
+ <div  id="cartFooter">
     <div>Total: ${totalPrice}€</div>
     <a href="bookings.html"><button class="purchase-btn">Purchase</button></a>
 </div>`
@@ -41,10 +41,15 @@ document.querySelector('#cartContainer').innerHTML +=`
 })
 
 const deleteBtn = document.querySelectorAll(".delete-btn")
+console.log(deleteBtn)
 
-for( let btn of deleteBtn) {
+
+for(let btn of deleteBtn) {
+    
     btn.addEventListener('click', () => {
-       fetch('http://localhost:3000/cart')
+        let parentId = btn.parentNode.id
+        console.log(parentId)
+       fetch(`http://localhost:3000/cart/${parentId}`)
 
     })
 
