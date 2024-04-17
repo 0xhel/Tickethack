@@ -22,10 +22,20 @@ router.get('/', (req, res) => {
 
 })
 
-router.delete('/:position', (req, res) => {
-    Cart.splice(req.params.position, 1);
-    res.json({ result: true, cartsList: Cart });
-});
+router.delete('/:cartId', (req, res) => {
+    const cartId = req.params.cartId;
 
+    Cart.deleteOne({ _id: cartId })
+        .then(deletedDoc => {
+            if (deletedDoc.deletedCount > 0) {
+                Cart.find()
+                    .then(carts => {
+                        res.json({ result: true, message: 'Cart deleted successfully', carts: carts });
+                    });
+            } else {
+                res.json({ result: false, error: 'Cart item not found' });
+            }
+        });
+});
 
 module.exports = router;
