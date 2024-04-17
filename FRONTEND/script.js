@@ -29,6 +29,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
  document.querySelector('#defaultDisplay').style.display = 'none'
 
  for(let elem of result.trips) {
+ 
 
    let justHours = elem.date.slice(11,16)
     
@@ -45,10 +46,10 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 
 
      for ( let item of booked ) {
-    
+      
          item.addEventListener('click', () => {
         let result = item.parentNode.id
-        console.log(result)
+        
          
 
         fetch('http://localhost:3000/cart', {
