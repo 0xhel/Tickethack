@@ -30,7 +30,6 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 
  for(let elem of result.trips) {
 
-  console.log(elem)
    let justHours = elem.date.slice(11,16)
     
     document.querySelector('#displaySection').innerHTML += `

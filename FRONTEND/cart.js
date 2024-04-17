@@ -38,8 +38,6 @@ document.querySelector('#cartContainer').innerHTML +=`
     <a href="bookings.html"><button class="purchase-btn">Purchase</button></a>
 </div>`
 
-})
-
 const deleteBtn = document.querySelectorAll(".delete-btn")
 console.log(deleteBtn)
 
@@ -47,10 +45,17 @@ console.log(deleteBtn)
 for(let btn of deleteBtn) {
     
     btn.addEventListener('click', () => {
+        
         let parentId = btn.parentNode.id
         console.log(parentId)
-       fetch(`http://localhost:3000/cart/${parentId}`)
+       fetch(`http://localhost:3000/cart/${parentId}`,)
 
     })
 
 }
+
+
+
+
+})
+
