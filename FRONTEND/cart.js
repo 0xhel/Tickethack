@@ -73,6 +73,10 @@ for(let btn of deleteBtn) {
 
     })
 
+    
+
+    }
+
 }
 
 
