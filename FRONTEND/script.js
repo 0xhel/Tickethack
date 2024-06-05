@@ -42,37 +42,43 @@ document.querySelector('#search-btn').addEventListener('click', () => {
                 </div>`
   } 
 
+ function bookListener() {
   const booked = document.querySelectorAll(".book-btn")
 
 
-     for ( let item of booked ) {
+  for ( let item of booked ) {
+   
+      item.addEventListener('click', () => {
+     let result = item.parentNode.id
+     
       
-         item.addEventListener('click', () => {
-        let result = item.parentNode.id
-        
-         
 
-        fetch('http://localhost:3000/cart', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({id: result})
+     fetch('http://localhost:3000/cart', {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({id: result})
 
-        }).then( resp => resp.json())
-          .then(resp => {
-            if(resp.result) {
-                window.location.assign("cart.html")
-            }
-          })
+     }).then( resp => resp.json())
+       .then(resp => {
+         if(resp.result) {
+             window.location.assign("cart.html")
+         }
+       })
 
-        
+     
 
 
 
 
-    
+ 
 
-      })
-   }
+   })
+}
+
+
+ }
+
+ bookListener()
 
     
 
@@ -104,19 +110,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 
 
 
-// affiche les voyages dans le panier
-function displayAddedTrips() {
 
-}
-// supprime un voyage du panier au click 
-function removeAddedTrip() {
-
-}
-
-// Total du prix des voyages ajoutés
-function totalPrice() {
-
-}
 
 
 

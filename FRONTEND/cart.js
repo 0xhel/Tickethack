@@ -39,43 +39,49 @@ document.querySelector('#cartContainer').innerHTML +=`
    <button class="purchase-btn">Purchase</button>
 </div>`
 
-const deleteBtn = document.querySelectorAll(".delete-btn")
+function deleteButton () {
+    const deleteBtn = document.querySelectorAll(".delete-btn")
 
-for(let btn of deleteBtn) {
-    
-    btn.addEventListener('click', () => {
-      
+    for(let btn of deleteBtn) {
         
-        let parentId = btn.parentNode.id
-
-       
-       fetch(`http://localhost:3000/cart/${parentId}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        
-       }).then(res => res.json())
-       .then(response => {
-        if(response.result) {
+        btn.addEventListener('click', () => {
+          
             
-            btn.parentNode.parentNode.remove()
-          totalPrice -= new Number(btn.previousElementSibling.id)
-            document.querySelector('#cartFooter').firstElementChild.textContent = `Total: ${totalPrice}€`
-          
-          
-          
+            let parentId = btn.parentNode.id
+    
+           
+           fetch(`http://localhost:3000/cart/${parentId}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            
+           }).then(res => res.json())
+           .then(response => {
+            if(response.result) {
+                
+                btn.parentNode.parentNode.remove()
+              totalPrice -= new Number(btn.previousElementSibling.id)
+                document.querySelector('#cartFooter').firstElementChild.textContent = `Total: ${totalPrice}€`
+              
+              
+              
+            }
+    
+           })
+    
+           
+    
+    
+    
+        })
+    
+        
+    
         }
 
-       })
 
-       
+} 
 
-
-
-    })
-
-    
-
-    }
+ deleteButton()
 
 }
 
